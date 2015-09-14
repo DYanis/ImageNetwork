@@ -148,11 +148,7 @@ var data = (function() {
                     'x-auth-key': localStorage.getItem(AUTH_KEY_STORAGE_KEY)
                 },
                 success: function(res) {
-                    console.log('like +1');
                     resolve(res);
-                },
-                error: function() {
-                    alert('You must be logged in for like cookies!')
                 }
             })
         })
@@ -175,11 +171,7 @@ var data = (function() {
                     'x-auth-key': localStorage.getItem(AUTH_KEY_STORAGE_KEY)
                 },
                 success: function(res) {
-                    console.log('dislike +1');
                     resolve(res);
-                },
-                error: function() {
-                    alert('You must be logged in for dislike cookies!')
                 }
             })
         })

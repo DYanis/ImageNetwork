@@ -112,41 +112,55 @@
                                 $("#home-fortune-cookies-container").html(template(allCookies));
 
                                 $('#home-fortune-cookies-container').on('click', function(event) {
+
                                     if (event.target.id === "btn-make-like") {
-                                        var reqLike = {
-                                            type: 'like',
-                                            id: $(event.target).attr('value'),
+                                        if (localStorage.getItem(AUTH_KEY_STORAGE_KEY) !== null) {
+                                            var reqLike = {
+                                                type: 'like',
+                                                id: $(event.target).attr('value'),
+                                            }
+                                            data.cookie.like(reqLike);
+                                            location.reload();
+                                            return;
+                                        } else {
+                                            alert('You must be logged in for like cookies!');
                                         }
-                                        data.cookie.like(reqLike);
-                                        location.reload();
-                                        return;
-                                    }
+                                    };
 
                                     if (event.target.id === "btn-make-dislike") {
-                                        var reqDislike = {
-                                            type: 'dislike',
-                                            id: $(event.target).attr('value'),
+                                        if (localStorage.getItem(AUTH_KEY_STORAGE_KEY) !== null) {
+                                            var reqDislike = {
+                                                type: 'dislike',
+                                                id: $(event.target).attr('value'),
+                                            }
+                                            data.cookie.disLike(reqDislike);
+                                            location.reload();
+                                            return;
+                                        } else {
+                                            alert('You must be logged in for dislike cookies!');
                                         }
-                                        data.cookie.disLike(reqDislike);
-                                        location.reload();
-                                        return;
-                                    }
+                                    };
 
                                     if (event.target.id === "btn-share-cookie") {
                                         var id = $(event.target).attr('value');
 
                                         data.cookie.getById(id)
                                             .then(function(currentCookie) {
-                                                var cookieInfo = {
-                                                    authKey: localStorage.getItem(AUTH_KEY_STORAGE_KEY),
-                                                    text: currentCookie.text,
-                                                    category: currentCookie.category,
-                                                    imgUrl: currentCookie.img,
+                                                if (localStorage.getItem(AUTH_KEY_STORAGE_KEY) !== null) {
+                                                    var cookieInfo = {
+                                                        authKey: localStorage.getItem(AUTH_KEY_STORAGE_KEY),
+                                                        text: currentCookie.text,
+                                                        category: currentCookie.category,
+                                                        imgUrl: currentCookie.img,
+                                                    };
+
+                                                    data.cookie.create(cookieInfo)
+                                                    location.reload();
+                                                    alert('success!');
+                                                } else {
+                                                    alert('You must be logged in to reshare cookie!');
                                                 };
 
-                                                data.cookie.create(cookieInfo)
-                                                location.reload();
-                                                alert('success!');
                                             })
                                     }
                                 });

@@ -28,8 +28,37 @@
           "shareDate": "2015-09-14T21:04:28.055Z",
           "id": "99727b8a-a787-4690-99eb-e3c8adf544f2",
           "hours": 0
+        },
+        {
+          "text": "SQL t-shirt",
+          "category": "Programming humor",
+          "img": "https://s-media-cache-ak0.pinimg.com/236x/f7/4b/32/f74b3290ee598010e9d77b5391989d20.jpg",
+          "userId": "b889fc64-8ff2-4f26-8fe5-5f408d0e5326",
+          "likes": 2,
+          "dislikes": 1,
+          "shareDate": "2015-09-14T21:04:28.055Z",
+          "id": "99727b8a-a787-4690-99eb-e3c8adf544f2",
+          "hours": 0
+        },
+        {
+          "text": "SQL t-shirt",
+          "category": "Programming humor",
+          "img": "https://s-media-cache-ak0.pinimg.com/236x/f7/4b/32/f74b3290ee598010e9d77b5391989d20.jpg",
+          "userId": "b889fc64-8ff2-4f26-8fe5-5f408d0e5326",
+          "likes": 2,
+          "dislikes": 1,
+          "shareDate": "2015-09-14T21:04:28.055Z",
+          "id": "99727b8a-a787-4690-99eb-e3c8adf544f2",
+          "hours": 0
         }
       ]
+    },
+    {
+      "username": "aaaaa",
+      "passHash": "86f7e437faa5a7fce15d1ddcb9eaeaea377667b8",
+      "usernameToLower": "aaaaa",
+      "id": "f6ac8aff-5b54-440e-83d8-c414d40e7abb",
+      "authKey": "f6ac8aff-5b54-440e-83d8-c414d40e7abbYmfVLYhVpvyoGOnnyPgAUZlp"
     }
   ],
   "cookies": [
@@ -38,7 +67,7 @@
       "category": "Programming humor",
       "img": "https://s-media-cache-ak0.pinimg.com/236x/f7/4b/32/f74b3290ee598010e9d77b5391989d20.jpg",
       "userId": "b889fc64-8ff2-4f26-8fe5-5f408d0e5326",
-      "likes": 4,
+      "likes": 6,
       "dislikes": 2,
       "shareDate": "2015-09-14T21:04:28.055Z",
       "id": "99727b8a-a787-4690-99eb-e3c8adf544f2",
@@ -49,7 +78,7 @@
       "category": "Programming humor",
       "img": "https://s-media-cache-ak0.pinimg.com/236x/f7/4b/32/f74b3290ee598010e9d77b5391989d20.jpg",
       "userId": "b889fc64-8ff2-4f26-8fe5-5f408d0e5326",
-      "likes": 1,
+      "likes": 2,
       "dislikes": 1,
       "shareDate": "2015-09-14T21:08:00.325Z",
       "id": "613ad6db-1192-4141-8994-71a4c4a25644"
@@ -59,7 +88,7 @@
       "category": "fun",
       "img": "http://kosopad-bg.net/wp-content/uploads/2013/07/kosopad-komutri.jpg",
       "userId": "b889fc64-8ff2-4f26-8fe5-5f408d0e5326",
-      "likes": 2,
+      "likes": 4,
       "dislikes": 0,
       "shareDate": "2015-09-14T21:12:25.791Z",
       "id": "701731c4-a1ba-49a4-ac5e-0703a8b4a5f0"
@@ -69,8 +98,8 @@
       "category": "animal",
       "img": "http://i.telegraph.co.uk/multimedia/archive/01456/ppet1_1456179c.jpg",
       "userId": "b889fc64-8ff2-4f26-8fe5-5f408d0e5326",
-      "likes": 5,
-      "dislikes": 1,
+      "likes": 21,
+      "dislikes": 7,
       "shareDate": "2015-09-14T21:14:54.864Z",
       "id": "eaac88d1-34ab-45e4-b1fc-227ba2dbb7e4"
     },
@@ -79,10 +108,20 @@
       "category": "animal",
       "img": "https://s-media-cache-ak0.pinimg.com/236x/97/40/c7/9740c75aca7c53450c8d7f6b85e5f3be.jpg",
       "userId": "b889fc64-8ff2-4f26-8fe5-5f408d0e5326",
-      "likes": 2,
+      "likes": 4,
       "dislikes": 0,
       "shareDate": "2015-09-14T21:15:44.745Z",
       "id": "b2fe6c87-e273-41ed-a0ca-acb8517130ef"
+    },
+    {
+      "text": "meerkat",
+      "category": "animal",
+      "img": "http://www.photoline.ru/critic/picpart/1284/1284662916.jpg",
+      "userId": "b889fc64-8ff2-4f26-8fe5-5f408d0e5326",
+      "likes": 3,
+      "dislikes": 1,
+      "shareDate": "2015-09-14T21:58:06.613Z",
+      "id": "62c87e68-f0b8-4a4a-8901-1dc4125f453a"
     }
   ]
 }
