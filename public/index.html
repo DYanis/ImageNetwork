@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SPA cookie application </title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<body>
+    <nav>
+        <a href="#/home" class="btn btn-primary">Home</a>
+        <a class="btn btn-primary" href="#/my-cookie">My cookie</a>
+        <a href="#/shareCookie" class="btn btn-primary" id="btn-go-to-create-cookie">Share cookie</a>
+        <a href="#/register" class="btn btn-primary" id="btn-go-to-register">Register</a>
+        <a href="#/login" class="btn btn-primary" id="btn-go-to-login">Login</a>
+        <button class="btn btn-warning" id="btn-logout">Logout</button>
+        <hr>
+    </nav>
+
+    <div id="content">
+
+    </div>
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/sammy/lib/sammy.js"></script>
+    <script src="bower_components/handlebars/handlebars.js"></script>
+    <script src="bower_components/sha1/index.js"></script>
+
+    <script src="js/templates.js"></script>
+    <script src="js\data.js"></script>
+
+    <script type="text/javascript">
+        $('#btn-logout').on('click', function() {
+            data.users.logout();
+            location.reload();
+        });
+    </script>
+
+    <script>
+        var sammyApp = Sammy('#content', function() {
+            var $content = $('#content');
+            const USERNAME_STORAGE_KEY = 'username-key',
+                AUTH_KEY_STORAGE_KEY = 'auth-key-key';
+
+            this.get("#/", function() {
+                this.redirect('#/home');
+            });
+
+            this.get('#/register', function(context) {
+                templates.get('register')
+                    .then(function(template) {
+                        $content.html(template());
+
+                        $("#btn-register").on('click', function() {
+                            var password1 = $('#inputPassword1').val();
+                            var password2 = $('#inputPassword2').val();
+
+                            if (password1 === password2) {
+                                var user = {
+                                    username: $('#inputUsername').val(),
+                                    password: password1
+                                };
+                                var loginUser = user;
+                                data.users.register(user)
+                                    .then(function(user) {
+                                        context.redirect('#/home');
+                                        return user;
+                                    })
+                                    .then(function(user) {
+                                        data.users.login(loginUser);
+                                        alert("success!");
+                                        location.reload();
+                                    });
+                            } else {
+                                alert("Passwords aren't equal!");
+                            }
+                        });
+                    });
+            });
+
+            this.get('#/login', function(context) {
+                templates.get('login')
+                    .then(function(template) {
+                        $content.html(template());
+                        $('#btn-login').on('click', function() {
+                            var user = {
+                                username: $('#login-input-username').val(),
+                                password: $('#login-input-password').val(),
+                            }
+                            data.users.login(user)
+                                .then(function(user) {
+                                    context.redirect('#/home');
+                                    alert("success!");
+                                    location.reload();
+                                })
+                        });
+                    })
+            });
+
+            this.get('#/home', function(context) {
+                templates.get('home')
+                    .then(function(template) {
+                        $content.html(template());
+                    });
+
+                data.cookie.getAll()
+                    .then(function(response) {
+                        var allCookies = response.result;
+                        templates.get('cookies')
+                            .then(function(template) {
+                                $("#home-fortune-cookies-container").html(template(allCookies));
+
+                                $('#home-fortune-cookies-container').on('click', function(event) {
+                                    if (event.target.id === "btn-make-like") {
+                                        var reqLike = {
+                                            type: 'like',
+                                            id: $(event.target).attr('value'),
+                                        }
+                                        data.cookie.like(reqLike);
+                                        location.reload();
+                                        return;
+                                    }
+
+                                    if (event.target.id === "btn-make-dislike") {
+                                        var reqDislike = {
+                                            type: 'dislike',
+                                            id: $(event.target).attr('value'),
+                                        }
+                                        data.cookie.disLike(reqDislike);
+                                        location.reload();
+                                        return;
+                                    }
+
+                                    if (event.target.id === "btn-share-cookie") {
+                                        var id = $(event.target).attr('value');
+
+                                        data.cookie.getById(id)
+                                            .then(function(currentCookie) {
+                                                var cookieInfo = {
+                                                    authKey: localStorage.getItem(AUTH_KEY_STORAGE_KEY),
+                                                    text: currentCookie.text,
+                                                    category: currentCookie.category,
+                                                    imgUrl: currentCookie.img,
+                                                };
+
+                                                data.cookie.create(cookieInfo)
+                                                location.reload();
+                                                alert('success!');
+                                            })
+                                    }
+                                });
+                            })
+                    })
+            });
+
+            this.get('#/shareCookie', function(context) {
+                if (!data.users.current()) {
+                    alert('You must be logged in to share new cookie!');
+                    context.redirect('#/home');
+                    return;
+                };
+                templates.get('addCookie')
+                    .then(function(template) {
+                        $content.html(template());
+
+                        $('#btn-add-cookie').on('click', function() {
+                            if ($('#input-cookie-text').val() === null || $('#input-cookie-category').val() === null) {
+                                alert("Coookie description and cookie category are required!");
+                                return;
+                            };
+
+                            var cookieInfo = {
+                                authKey: localStorage.getItem(AUTH_KEY_STORAGE_KEY),
+                                text: $('#input-cookie-text').val(),
+                                category: $('#input-cookie-category').val(),
+                                imgUrl: $('#input-img-url').val(),
+                            };
+
+                            data.cookie.create(cookieInfo)
+                            alert('success!');
+                            context.redirect('#/home');
+                        });
+                    })
+            });
+
+            this.get('#/my-cookie', function(context) {
+                if (!data.users.current()) {
+                    alert('You must be logged in to show your hourly fortune cookie!');
+                    context.redirect('#/home');
+                    return;
+                };
+                var myCookie;
+                data.cookie.getCookie()
+                    .then(function(cookie) {
+                        myCookie = cookie.result;
+                        templates.get('myCookie')
+                            .then(function(tempalate) {
+                                $content.html(tempalate(myCookie));
+                            })
+                    })
+            });
+        });
+
+        $(function() {
+            sammyApp.run('#/');
+
+            if (data.users.current()) {
+                $('#btn-go-to-login')
+                    .addClass('hidden');
+            } else {
+                $('#btn-logout')
+                    .addClass('hidden');
+            }
+
+        });
+    </script>
+
+</body>
+
+</html>

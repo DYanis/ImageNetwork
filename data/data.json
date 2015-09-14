@@ -1,0 +1,88 @@
+{
+  "users": [
+    {
+      "username": "dimitar",
+      "passHash": "8cb2237d0679ca88db6464eac60da96345513964",
+      "usernameToLower": "dimitar",
+      "id": "b889fc64-8ff2-4f26-8fe5-5f408d0e5326",
+      "authKey": "b889fc64-8ff2-4f26-8fe5-5f408d0e5326INWJWJAYjzKGbxloApovVkMi",
+      "myCookies": [
+        {
+          "text": "SQL t-shirt",
+          "category": "Programming humor",
+          "img": "https://s-media-cache-ak0.pinimg.com/236x/f7/4b/32/f74b3290ee598010e9d77b5391989d20.jpg",
+          "userId": "b889fc64-8ff2-4f26-8fe5-5f408d0e5326",
+          "likes": 2,
+          "dislikes": 1,
+          "shareDate": "2015-09-14T21:04:28.055Z",
+          "id": "99727b8a-a787-4690-99eb-e3c8adf544f2",
+          "hours": 0
+        },
+        {
+          "text": "SQL t-shirt",
+          "category": "Programming humor",
+          "img": "https://s-media-cache-ak0.pinimg.com/236x/f7/4b/32/f74b3290ee598010e9d77b5391989d20.jpg",
+          "userId": "b889fc64-8ff2-4f26-8fe5-5f408d0e5326",
+          "likes": 2,
+          "dislikes": 1,
+          "shareDate": "2015-09-14T21:04:28.055Z",
+          "id": "99727b8a-a787-4690-99eb-e3c8adf544f2",
+          "hours": 0
+        }
+      ]
+    }
+  ],
+  "cookies": [
+    {
+      "text": "SQL t-shirt",
+      "category": "Programming humor",
+      "img": "https://s-media-cache-ak0.pinimg.com/236x/f7/4b/32/f74b3290ee598010e9d77b5391989d20.jpg",
+      "userId": "b889fc64-8ff2-4f26-8fe5-5f408d0e5326",
+      "likes": 4,
+      "dislikes": 2,
+      "shareDate": "2015-09-14T21:04:28.055Z",
+      "id": "99727b8a-a787-4690-99eb-e3c8adf544f2",
+      "hours": 0
+    },
+    {
+      "text": "SQL t-shirt",
+      "category": "Programming humor",
+      "img": "https://s-media-cache-ak0.pinimg.com/236x/f7/4b/32/f74b3290ee598010e9d77b5391989d20.jpg",
+      "userId": "b889fc64-8ff2-4f26-8fe5-5f408d0e5326",
+      "likes": 1,
+      "dislikes": 1,
+      "shareDate": "2015-09-14T21:08:00.325Z",
+      "id": "613ad6db-1192-4141-8994-71a4c4a25644"
+    },
+    {
+      "text": "child",
+      "category": "fun",
+      "img": "http://kosopad-bg.net/wp-content/uploads/2013/07/kosopad-komutri.jpg",
+      "userId": "b889fc64-8ff2-4f26-8fe5-5f408d0e5326",
+      "likes": 2,
+      "dislikes": 0,
+      "shareDate": "2015-09-14T21:12:25.791Z",
+      "id": "701731c4-a1ba-49a4-ac5e-0703a8b4a5f0"
+    },
+    {
+      "text": "hedgehog",
+      "category": "animal",
+      "img": "http://i.telegraph.co.uk/multimedia/archive/01456/ppet1_1456179c.jpg",
+      "userId": "b889fc64-8ff2-4f26-8fe5-5f408d0e5326",
+      "likes": 5,
+      "dislikes": 1,
+      "shareDate": "2015-09-14T21:14:54.864Z",
+      "id": "eaac88d1-34ab-45e4-b1fc-227ba2dbb7e4"
+    },
+    {
+      "text": "baby hedgehog",
+      "category": "animal",
+      "img": "https://s-media-cache-ak0.pinimg.com/236x/97/40/c7/9740c75aca7c53450c8d7f6b85e5f3be.jpg",
+      "userId": "b889fc64-8ff2-4f26-8fe5-5f408d0e5326",
+      "likes": 2,
+      "dislikes": 0,
+      "shareDate": "2015-09-14T21:15:44.745Z",
+      "id": "b2fe6c87-e273-41ed-a0ca-acb8517130ef"
+    }
+  ]
+}

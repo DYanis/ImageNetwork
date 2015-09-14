@@ -1,0 +1,25 @@
+{{#if this}}
+    <h1>Cookies</h1>
+    {{#each this}}
+        <div class="cookie-div">
+            <ul style="list-style-type: none">
+                <li>
+                    <p>Category:
+                        <strong>{{category}}</strong>
+                    </p>
+                    <img style="height:250px;width:250px" src="{{img}}" alt="cool cookie" />
+                    <p>Description: {{text}}</p>
+                    <div class="vote-div">
+                        <strong>LIKES: {{likes}}</strong>
+                        <span>DISLIKES: {{dislikes}}</span>
+                    </div>
+                    <button id="btn-make-like" class="btn btn-success" value="{{id}}">Like</button>
+                    <button id="btn-make-dislike" class="btn btn-danger" value="{{id}}">Dislike</button>
+                    <button id="btn-share-cookie" class="btn btn-primary" value="{{id}}">Reshare</button>
+                </li>
+            </ul>
+        </div>
+    {{/each}}
+{{else}}
+    <h2>No cookies</h2>
+{{/if}}
