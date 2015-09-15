@@ -1,6 +1,6 @@
 var _ = require('lodash');
 const PAGE_SIZE = 10,
-  DEFAULT_COOKIE_IMAGE = 'https://dayinthelifeofapurpleminion.files.wordpress.com/2014/12/batman-exam.jpg';
+  DEFAULT_COOKIE_IMAGE = 'http://i.telegraph.co.uk/multimedia/archive/01456/ppet1_1456179c.jpg';
 
 
 module.exports = function(db) {
